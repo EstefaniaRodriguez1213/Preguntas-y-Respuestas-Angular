@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row" style="width:100%">
+        <div class="card text center">
+            <div class="col-lg-6 offset-lg-3" style="padding: 20px;">
+                <h3>Login</h3>
+                <br>
+                <form [formGroup] = "login" (ngSubmit)=log()>
+                <div class="from-group">
+                    <input type="text" class="form-control" placeholder="Usuario" formControlName="usuario" >
+                        <span class="text-danger" *ngIf="login.get('usuario')?.hasError('required')
+                        && login.get('usuario')?.touched">
+                            El usuario es requerido    
+                        </span>
+                </div>
+                <div class="from-group">
+                    <input type="password" class="form-control" placeholder="Contraseña" formControlName="password" >
+                    <span class="text-danger" *ngIf="login.get('password')?.hasError('required')
+                    && login.get('password')?.touched" >
+                        La contraseña es requerida    
+                    </span>
+                </div>
+                <div class="from-group">
+                   <button class="btn btn-primary mr-2 bnt-login" type="submit" [disabled]="login.invalid" >Aceptar</button>
+                    <button class="btn btn-secondary" routerLink="/inicio">Volver</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
